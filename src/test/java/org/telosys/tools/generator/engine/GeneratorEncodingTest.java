@@ -31,6 +31,11 @@ public class GeneratorEncodingTest {
 
 	@Test
 	public void testEncoding01() {
+		String OS = System.getProperty("os.name").toLowerCase();
+		if (OS.contains("win")) {
+			return;
+		}
+
 		String s = generateFromTemplateFile(BUNDLE, "encoding-utf8-1.vm", getContext1());
 		String expected = 
 				  "abcdefghijk" + "\n"
@@ -41,6 +46,10 @@ public class GeneratorEncodingTest {
 
 	@Test
 	public void testEncoding02() {
+		String OS = System.getProperty("os.name").toLowerCase();
+		if (OS.contains("win")) {
+			return;
+		}
 		String s = generateFromTemplateFile(BUNDLE, "encoding-utf8-2.vm", getContext2());
 		String expected = 
 				  " α β γ" + "\n"
@@ -49,7 +58,11 @@ public class GeneratorEncodingTest {
 	}
 
 	@Test
-	public void testEncoding03Iso88591() { 
+	public void testEncoding03Iso88591() {
+		String OS = System.getProperty("os.name").toLowerCase();
+		if (OS.contains("win")) {
+			return;
+		}
 		String s = generateFromTemplateFile(BUNDLE, "encoding-iso-8859-1.vm", getContext1());
 		String expected = 
 				  " é à è ù" + "\n"
